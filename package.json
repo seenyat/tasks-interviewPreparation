@@ -1,0 +1,11 @@
+{
+  "name": "tasks",
+  "version": "0.1",
+  "description": "Задачи для подготовки с разных интервью",
+  "main": "app.js",
+  "author": "Roman Zagrebin",
+  "license": "MIT",
+  "devDependencies": {
+    "vitest": "^0.34.6"
+  }
+}
