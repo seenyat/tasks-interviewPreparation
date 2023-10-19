@@ -2,19 +2,13 @@
  * Написать функцию, которая принимает строку и возвращает ее в обратном порядке
  */
 
-export function reverseString(str) {
-  return str.split("").reverse().join("");
-}
+export function reverseString(str) {}
 
 /* 2
  * Написать функцию, которая будет возвращать промис спустя определённое время
  */
 
-export function delay(timeout) {
-  return new Promise((res, rej) => {
-    setTimeout(() => res(), timeout);
-  });
-}
+export function delay(timeout) {}
 
 /* 3
  * Есть два сортированных массива с промисами, которые через секунду возвращают числа.
@@ -37,24 +31,14 @@ const secondArr = [
   Promise.resolve(7),
 ];
 
-export async function getIntersection(first, second) {
-  const firstArr = await Promise.all(first);
-  const secondArr = await Promise.all(second);
-  return firstArr.filter((el) => secondArr.includes(el));
-}
+export async function getIntersection(first, second) {}
 
 /* 4
  * Написать функцию, которая принимает массив чисел и возвращает промис,
  * который через секунду вернёт сумму этих чисел
  */
 
-export function sum(arr) {
-  return new Promise((res, rej) => {
-    setTimeout(() => {
-      res(arr.reduce((acc, el) => acc + el, 0));
-    }, 1000);
-  });
-}
+export function sum(arr) {}
 
 /* 5
  * С бекенда приходит массив такого вида:  */
@@ -74,30 +58,14 @@ export function sum(arr) {
 //   ...
 // }
 
-export function objFromArr(arr) {
-  const obj = arr.reduce((acc, el) => {
-    acc[el.name] = el.value;
-    return acc;
-  }, {});
-  return obj;
-}
+export function objFromArr(arr) {}
 
 /* 6
  * Нужно написать функцию, которая принимает число N и возвращает функцию,
  * вызов которой первые N раз возвращает 'yes', а потом – 'no'.
  */
 
-export function yesOrNo(n) {
-  let count = 0;
-  return () => {
-    if (count < n) {
-      count++;
-      return "yes";
-    } else {
-      return "no";
-    }
-  };
-}
+export function yesOrNo(n) {}
 
 /* 7
  * Подсчитать количество вхождений каждого символа в строке и вернуть результат в приведенном ниже формате.
@@ -107,26 +75,14 @@ export function yesOrNo(n) {
 
 const str = "abacabad";
 
-export function orderedCount(str) {
-  const res = [];
-  const arr = str.split("");
-  const set = new Set(arr);
-
-  for (let el of set) {
-    res.push([el, arr.filter((item) => item === el).length]);
-  }
-
-  return res;
-}
+export function orderedCount(str) {}
 
 /* 8
  * Написать функцию strJoin, которая склеивает строки через заданный разделитель
  * strJoin('>', 'a', 'b', 'c') // 'a>b>c'
  */
 
-export function strJoin(separator, ...str) {
-  return str.join(separator);
-}
+export function strJoin(separator, ...str) {}
 
 /* 9
  * Дана строка, состоящая из букв A-Z:
@@ -143,38 +99,7 @@ export function strJoin(separator, ...str) {
  * 2. Если символ повторяется более 1 раза, к нему добавляется количество повторений
  */
 
-export function rle(str) {
-  const re = /^[A-Z]+$/;
-  if (!re.test(str)) {
-    return new Error("невалидная строка");
-  }
-
-  let lastLetter = str[0];
-  let count = 1;
-  const resRle = [];
-
-  for (let i = 1; i < str.length; i++) {
-    if (str[i] === lastLetter) {
-      count++;
-    } else {
-      if (count === 1) {
-        resRle.push(lastLetter);
-      } else {
-        resRle.push(lastLetter, count);
-        count = 1;
-      }
-      lastLetter = str[i];
-    }
-  }
-
-  if (count === 1) {
-    resRle.push(lastLetter);
-  } else {
-    resRle.push(lastLetter, count);
-  }
-
-  return resRle.join("");
-}
+export function rle(str) {}
 
 /* 10
   Вам дан массив, который может содержать любые типы данных. Например:
@@ -193,16 +118,4 @@ export function rle(str) {
   Обратите внимание: функция "flatten" не должна изменять исходный массив и должна возвращать новый массив.
  */
 
-export function flatten(arr) {
-  // Простое решение:
-  // return arr.flat(Infinity)
-  return arr.reduce((acc, el) => {
-    if (Array.isArray(el)) {
-      acc = acc.concat(flatten(el));
-    } else {
-      acc.push(el);
-    }
-    return acc;
-  }, []);
-}
-console.log(flatten([1, [2, [3, [4]]]]));
+export function flatten(arr) {}
